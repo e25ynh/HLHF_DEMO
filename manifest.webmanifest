@@ -1,0 +1,36 @@
+{
+ "id": "./",
+ "name": "HLHf = HAM LOG HF",
+ "short_name": "HLHf",
+ "description": "บันทึก Log และปฏิบัติการวิทยุสมัครเล่น (CW / Voice / Digital / Satellite)",
+ "lang": "th",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#04070e",
+ "theme_color": "#04070e",
+ "categories": [
+  "utilities",
+  "education"
+ ],
+ "icons": [
+  {
+   "src": "icons/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-maskable-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
