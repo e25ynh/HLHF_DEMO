@@ -904,7 +904,7 @@ const R={};for(const k in M)R[M[k]]=k;
 let S={tone:700,auto:true,ch:'mix',dev:'',my:{},ps:[],cur:'',mode:'cq',gr:'',rs:'599',tt:'CQ CQ DE HS0ABC K'};
 try{Object.assign(S,JSON.parse(localStorage.getItem('cwc')||'{}'))}catch(e){}
 if(S.my&&S.my.wx==='RAIN')S.my.wx='RAINY';
-const VER='1.6.9 DEMO · 2026-11-11';
+const VER='1.7.0 DEMO · 2026-11-11';
 const save=()=>{try{localStorage.setItem('cwc',JSON.stringify(S))}catch(e){}};
 // ---- editions (รุ่น): Standard=VOICE · Plus=+CW · Pro=+DIGITAL · Ultimate=+SATELLITE ; unlocked by a signed key bound to the callsign ----
 const ED_PUB={"kty":"EC","x":"hkg1ObxqZdpiZk-OK94gIz_Dpkas1auP51b0hriWZDI","y":"uPCAm2i8pWxZ1l1G1659VyDVwU3OmZixiiDqeWo5VqU","crv":"P-256"};
@@ -6819,7 +6819,7 @@ const b=document.createElement('button');b.id='cwfold';b.className='sm';b.textCo
 let fo=false;try{fo=localStorage.getItem('cwfold')==='1'}catch(_){}
 const set=v=>{fo=v;p1.classList.toggle('foc',v);try{localStorage.setItem('cwfold',v?'1':'0')}catch(_){}};
 b.onclick=()=>set(true);f.querySelector('#fbt').onclick=()=>set(false);set(fo);
-setInterval(()=>{if(!fo)return;try{const live=rigOK(),hz=live?rig.hz:parseFloat(curFreq())*1e6;f.querySelector('#fbf').textContent=hz?(hz/1e6).toFixed(5)+' MHz':'--';f.querySelector('#fbm').textContent=['CW',hz?bandOf(hz/1e6):'',live?(rig.ptt?'TX':'RX'):'ไม่ได้ต่อวิทยุ'].filter(Boolean).join(' · ')}catch(_){}},500)})();</script><script id="vqljs">setInterval(()=>{try{const w=document.querySelector('.qlw');if(w)w.style.display=QG==='VOICE'?'none':''}catch(_){}},300)</script><script>
+setInterval(()=>{if(!fo)return;try{const live=rigOK(),hz=live?rig.hz:parseFloat(curFreq())*1e6;f.querySelector('#fbf').textContent=hz?(hz/1e6).toFixed(5)+' MHz':'--';f.querySelector('#fbm').textContent=['CW',hz?bandOf(hz/1e6):'',live?(rig.ptt?'TX':'RX'):'ไม่ได้ต่อวิทยุ'].filter(Boolean).join(' · ')}catch(_){}},500)})();</script><script id="vqljs">setInterval(()=>{try{const w=document.querySelector('.qlw');if(w){const p4=document.querySelector('#p4'),inV=p4&&p4.contains(w)&&!p4.hidden&&p4.offsetParent;w.style.display=inV&&QG==='VOICE'?'none':''}}catch(_){}},300)</script><script>
 /* PWA: register service worker (http/https only) + update toast */
 (function(){
 if(!('serviceWorker' in navigator)||!/^https?:$/.test(location.protocol))return;
