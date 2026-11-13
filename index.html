@@ -904,7 +904,7 @@ const R={};for(const k in M)R[M[k]]=k;
 let S={tone:700,auto:true,ch:'mix',dev:'',my:{},ps:[],cur:'',mode:'cq',gr:'',rs:'599',tt:'CQ CQ DE HS0ABC K'};
 try{Object.assign(S,JSON.parse(localStorage.getItem('cwc')||'{}'))}catch(e){}
 if(S.my&&S.my.wx==='RAIN')S.my.wx='RAINY';
-const VER='1.7.1 DEMO · 2026-11-13';
+const VER='1.7.2 DEMO · 2026-11-13';
 const save=()=>{try{localStorage.setItem('cwc',JSON.stringify(S))}catch(e){}};
 // ---- editions (รุ่น): Standard=VOICE · Plus=+CW · Pro=+DIGITAL · Ultimate=+SATELLITE ; unlocked by a signed key bound to the callsign ----
 const ED_PUB={"kty":"EC","x":"hkg1ObxqZdpiZk-OK94gIz_Dpkas1auP51b0hriWZDI","y":"uPCAm2i8pWxZ1l1G1659VyDVwU3OmZixiiDqeWo5VqU","crv":"P-256"};
@@ -6553,7 +6553,7 @@ function ft4Apply(){const s=selSat(),m=$('#qsm');if(!s||!m||s.m!=='LIN')return;c
   ws.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch(_){return}if(m.t==='st'){WJ.st=m;wjUI();wjMode(m.mode)}else if(m.t==='close'){WJ.st=null;wjUI()}else if(m.t==='adif'&&m.a)wjQso(m.a);else if(m.t==='ptt')wjPtt(m.on)}}
  // WSJT-X keys the radio through HLHf (Hamlib NET rigctl 127.0.0.1:4532 in the bridge): PTT -> CI-V 1C 00 01/00 on the radio HLHf holds
  function pttRadio(){for(const m of ['SAT','VOICE'])if(RC[m].port&&RC[m].cat&&rigPr(m)==='civ')return m;return null}
- function wjPtt(on){const m=pttRadio();if(!m){satMsg('WSJT-X สั่งส่ง แต่ HLHf ยังไม่ได้ต่อวิทยุ');return}const C=RC[m];const a=civA(m);try{C.cat.send([0x1C,0x00,on?1:0])}catch(_){}WJ.tx=!!on;wjUI()}
+ function wjPtt(on){const m=pttRadio();if(!m){satMsg('WSJT-X สั่งส่ง แต่ HLHf ยังไม่ได้ต่อวิทยุ');return}const C=RC[m];const a=civA(m);try{C.cat.send([0x1C,0x00,on?1:0])}catch(_){}try{const P=C.port&&(C.port.setSignals?C.port:C.port.raw);if(P&&P.setSignals)P.setSignals({requestToSend:!!on}).catch(()=>{})}catch(_){}WJ.tx=!!on;wjUI()}
  setInterval(()=>{const ws=WJ.ws;if(!ws||ws.readyState!==1)return;const m=pttRadio();const hz=m&&RC[m].rig&&RC[m].rig.hz;if(hz)try{ws.send(JSON.stringify({c:'rigst',f:Math.round(hz),m:'USB'}))}catch(_){}},1000);
  $$('#sxwj').onclick=()=>{S.wjOn=!S.wjOn;save();if(!S.wjOn&&WJ.ws){try{WJ.ws.close()}catch(_){}WJ.ws=null}wjOpen();wjUI()};
  setInterval(()=>{if(S.wjOn)wjOpen()},10000);wjOpen();wjUI();
