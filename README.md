@@ -1,10 +1,11 @@
-# HLHf = HAM LOG HF — V1.7.0 DEMO
+# HLHf = HAM LOG HF — V1.7.1 DEMO
 
 โปรแกรมบันทึก Log และช่วยปฏิบัติการวิทยุสมัครเล่น สำหรับนักวิทยุขั้นกลาง-สูง (HF · CW · VOICE · SATELLITE) ทำงานบนเบราว์เซอร์ (Chrome / Edge) ติดตั้งเป็นแอปบน Windows และ Mac ได้ ไม่ต้องติดตั้งโปรแกรมอื่นเพิ่ม ข้อมูลทั้งหมดเก็บในเครื่องของผู้ใช้เอง ไม่ได้อยู่บน GitHub หรือเซิร์ฟเวอร์ใด ๆ
 
 **เปิดใช้งาน:** https://e25ynh.github.io/HAM-LOG-HF/ · รุ่นเสียง VHF/UHF: [HLVhf = HAM LOG VHF](https://e25ynh.github.io/HAM-LOG-Vhf/)
 
-## มีอะไรใหม่ใน V1.7.0 DEMO
+## มีอะไรใหม่ใน V1.7.1 DEMO
+- เอาแถบ สถานะ ก้านคีย์ (ปล่อย/ก้านจุด/ก้านขีด) ออก เพื่อไม่ให้หน้าเว็บกระพริบ
 - แก้: ตาราง QSO ล่าสุดในหน้า Dashboard หายไปตอนกลับจากหน้า VOICE
 - ข้อความมาโครแสดงครบทุกตัวอักษร (ขึ้นบรรทัดใหม่ ไม่ตัด …)
 - ADIF ตามมาตรฐาน QRZ / LoTW / Log4OM: ISS ส่งเป็น SAT_NAME=ARISS · SAT_MODE แบบ V/U · หัวไฟล์มี PROGRAMVERSION และ CREATED_TIMESTAMP

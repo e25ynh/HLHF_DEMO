@@ -904,7 +904,7 @@ const R={};for(const k in M)R[M[k]]=k;
 let S={tone:700,auto:true,ch:'mix',dev:'',my:{},ps:[],cur:'',mode:'cq',gr:'',rs:'599',tt:'CQ CQ DE HS0ABC K'};
 try{Object.assign(S,JSON.parse(localStorage.getItem('cwc')||'{}'))}catch(e){}
 if(S.my&&S.my.wx==='RAIN')S.my.wx='RAINY';
-const VER='1.7.0 DEMO · 2026-11-11';
+const VER='1.7.1 DEMO · 2026-11-13';
 const save=()=>{try{localStorage.setItem('cwc',JSON.stringify(S))}catch(e){}};
 // ---- editions (รุ่น): Standard=VOICE · Plus=+CW · Pro=+DIGITAL · Ultimate=+SATELLITE ; unlocked by a signed key bound to the callsign ----
 const ED_PUB={"kty":"EC","x":"hkg1ObxqZdpiZk-OK94gIz_Dpkas1auP51b0hriWZDI","y":"uPCAm2i8pWxZ1l1G1659VyDVwU3OmZixiiDqeWo5VqU","crv":"P-256"};
@@ -2900,7 +2900,7 @@ function prCtl(){
  if(PS().cfg.dir==='tx'&&!prTxOk()){PS().cfg.dir='rx';save()}
  const c=PS().cfg,tx=c.dir==='tx';if(c.ex!=='les'&&!prLesDone()){c.ex='les';save()}
  let h='<div class="prx">'+pSeg('dir',[['rx','รับ'],['tx','ส่ง']],c.dir)+pSeg('ex',[['les','บทเรียน'],['chr','ตัวอักษร / เลข / สัญลักษณ์'],['call','Callsign'],['conv','การสนทนา']],c.ex);
- if(tx)h+='<b>สัญญาณคีย์</b>'+pSeg('src',[['hid','อะแดปเตอร์คีย์ USB'],['aud','เสียงจากช่อง 3.5 มม.']],c.src)+(c.src==='hid'?pSeg('kt',[['ia','พายเดิล Iambic'],['st','คีย์ตรง']],c.kt)+(c.kt!=='st'?'<label class="inl"><input id="prsw" type="checkbox"'+(c.swp?' checked':'')+'> สลับ จุด/ขีด</label>':'')+'<span class="inl">สถานะ <span class="prlv"><i id="prlvi"></i></span> <span id="prdt" class="mu">ปล่อย</span></span><span class="mu" style="flex-basis:100%">อะแดปเตอร์ (เช่น Arduino Pro Micro) ส่งปุ่ม Ctrl ซ้าย = จุด · Ctrl ขวา = ขีด · ระบบสร้างจังหวะตาม WPM ที่ตั้งและมีเสียงโทนจากลำโพงเครื่อง ไม่ต้องใช้วิทยุ</span>':'')+'<label class="inl"><input id="prh" type="checkbox"'+(c.hint?' checked':'')+'> แสดงรหัสมอร์สช่วย</label>';
+ if(tx)h+='<b>สัญญาณคีย์</b>'+pSeg('src',[['hid','อะแดปเตอร์คีย์ USB'],['aud','เสียงจากช่อง 3.5 มม.']],c.src)+(c.src==='hid'?pSeg('kt',[['ia','พายเดิล Iambic'],['st','คีย์ตรง']],c.kt)+(c.kt!=='st'?'<label class="inl"><input id="prsw" type="checkbox"'+(c.swp?' checked':'')+'> สลับ จุด/ขีด</label>':'')+'<span class="mu" style="flex-basis:100%">อะแดปเตอร์ (เช่น Arduino Pro Micro) ส่งปุ่ม Ctrl ซ้าย = จุด · Ctrl ขวา = ขีด · ระบบสร้างจังหวะตาม WPM ที่ตั้งและมีเสียงโทนจากลำโพงเครื่อง ไม่ต้องใช้วิทยุ</span>':'')+'<label class="inl"><input id="prh" type="checkbox"'+(c.hint?' checked':'')+'> แสดงรหัสมอร์สช่วย</label>';
  h+='</div><div class="prx">';
  if(c.ex==='chr')h+='<b>ชุด</b><div class="seg" data-g="sets">'+[['L','A–Z'],['N','0–9'],['Y','สัญลักษณ์']].map(([k,t])=>'<button data-v="'+k+'" class="'+(c.sets.includes(k)?'on':'')+'">'+t+'</button>').join('')+'</div><b>ครั้งละ</b>'+pSeg('grp',[[1,'1 ตัว'],[2,'2 ตัว'],[3,'3 ตัว'],[5,'5 ตัว']],c.grp)+'<span class="mu" title="= BT · + AR · * SK · ( KN">สัญลักษณ์: . , ? / - = + * (</span>';
  if(c.ex==='les'){const lv=Math.min(Math.max(+c.lv||1,1),LESN),lm=Math.min(PS().lm||1,LESN),nw=KOCH[lv],cd=ch=>(PRX[ch]||'').replace(/\./g,'·').replace(/-/g,'−');
